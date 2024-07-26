@@ -51,6 +51,7 @@ android {
 
 dependencies {
 
+    // Change...
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation(libs.gson)
     testImplementation("org.mockito:mockito-core:2.11.0")
