@@ -71,6 +71,27 @@ so in case of where we need to context , assest like object , instead of using i
 we can mock context and assets and create JVM test
 
 
+RoomDatabase test
+-------------------
+We need to perform testing on in memory database
+
+runBlocking - It will block the thread until all the coroutine
+defined in it execute
+
+getOrAwaitValue - It is extension method on livedata
+Used for synchronization
+
+If you have multiple threads, it will block untill all the thread work
+gets complete
+
+it will connituous check thread value, when thread values becomes 0,
+it will move on
+
+
+
+
+
+
 
 
 

@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    kotlin("kapt")
 }
 
 android {
@@ -52,11 +53,18 @@ android {
 dependencies {
 
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
-  //  implementation("implementation 'com.google.code.gson:gson:2.8.7")
 
     implementation(libs.gson)
+ //   implementation(libs.androidx.room.compiler)
 
+    // Mockito
     testImplementation("org.mockito:mockito-core:2.11.0")
+
+    val room_version = "2.6.1"
+
+    implementation("androidx.room:room-runtime:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+    annotationProcessor("android.arch.persistence.room:compiler:1.0.0")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
