@@ -52,11 +52,22 @@ android {
 dependencies {
 
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
-  //  implementation("implementation 'com.google.code.gson:gson:2.8.7")
-
     implementation(libs.gson)
-
     testImplementation("org.mockito:mockito-core:2.11.0")
+    implementation("com.google.code.gson:gson:2.8.6")
+    implementation("com.squareup.retrofit:converter-gson:2.0.0-beta2")
+
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.google.code.gson:gson:2.8.6")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
+
+    testImplementation("androidx.arch.core:core-testing:2.1.0")
+
+    testImplementation("org.mockito:mockito-core:3.6.0")
+    testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -74,5 +85,4 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-   // ssdd
 }

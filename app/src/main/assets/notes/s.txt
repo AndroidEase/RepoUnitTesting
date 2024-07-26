@@ -72,5 +72,16 @@ we can mock context and assets and create JVM test
 
 
 
+Test Dispatcher
+---------------
+
+All the coroutine get schedule but not execute on test dispatcher first
+We need to wait before executing assert statement that coroutine gets executed ,
+for that we need to use advancedUntillIdle
+
+testDispatcher.scheduler.advancedUntillIdle
+
+
+
 
 
