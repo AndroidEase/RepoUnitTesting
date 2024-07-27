@@ -5,6 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface QuoteDao {
@@ -19,7 +20,7 @@ interface QuoteDao {
     suspend fun delete()
 
     @Query("SELECT * FROM QuoteT")
-    fun getQuotes(): LiveData<List<QuoteT>>
+    fun getQuotes(): Flow<List<QuoteT>>
 
     @Query("SELECT * FROM QuoteT where id = :quoteId")
     suspend fun getQuoteById(quoteId: Int): QuoteT

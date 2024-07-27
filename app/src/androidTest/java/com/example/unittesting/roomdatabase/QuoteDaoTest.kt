@@ -1,11 +1,9 @@
 package com.example.unittesting.roomdatabase
 
-import androidx.room.Room
-import androidx.test.core.app.ApplicationProvider
 import com.example.unittesting.getOrAwaitValue
-import dagger.hilt.android.HiltAndroidApp
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Assert
@@ -16,8 +14,8 @@ import org.junit.Test
 @HiltAndroidTest
 class QuoteDaoTest {
 
-    @get:Rule
-    val instantExecutorRule = InstantTaskExecutorRule()
+//    @get:Rule
+//    val instantExecutorRule = InstantTaskExecutorRule()
 
     @get:Rule
     val hiltAndroidRule = HiltAndroidRule(this)
@@ -36,7 +34,7 @@ class QuoteDaoTest {
         val quote = QuoteT(0, "This is a test quote", "CheezyCode")
         quotesDao.insertQuote(quote)
 
-        val result = quotesDao.getQuotes().getOrAwaitValue()
+        val result = quotesDao.getQuotes().first()
 
         Assert.assertEquals(1, result.size)
         Assert.assertEquals("This is a test quote", result[0].text)

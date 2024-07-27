@@ -1,0 +1,142 @@
+iswhat is unit testing.
+
+We can test small peice of code in isolation
+Motive is to identify bugs
+And we have to write modular code for seperation of concerns
+So we have modular and extensible code
+
+Why we write test case in isolation because our test case shouldnt fail due to external reasons
+
+-----------------------------------------------------
+Junit - logic can be test with JVM and no need to device called unit testing
+Instrumentation test - we need device to test test case called instrumentation testing, when we need to use context and assetManager
+Espresso - Its UI test
+
+Unit test cases faster than Instrumentation test
+
+Instrumentation test case written on androidTest
+JVM test case written on test
+
+
+
+Notes :
+
+1. we should use same package structure to write unit test case, so that no visibility issues come
+2. If code coverage becomes 100 percentage or green, that doesn't matter your logic is right,
+   it just make sure , all your lines is getting execute, we should pass such different values so that our code coverage becomes
+   100 percentage and so we make sure , all the lines is geting execute
+   3. why we write jvmstatic in test case - its because junit is java's framework
+
+
+----------------------------------
+Parameterized test case
+
+Mocking -
+———————
+
+We can mock objects if we dependent on another class
+
+So we can reduce dependencies even if one module is not ready, we can do testing, this way we can achieve parallel development, execution speed will also be faster
+Unit test can result will not be reliable, if we depend on other classes, with mocking we can have deterministic output
+
+Execution Speed, we are not dependant on network
+Deterministic Output,
+Parallel Development,
+
+We have mockito library, which helps to mock objects
+
+We can fix the output/behaviour of our function
+Like user login function will return invalid password for any damm input data
+
+openMocks initialise all the object maked with @Mock
+
+Mockito is a Java Framework, it can’t mock final class
+
+Test/resources/mockito-extensions/MockMaker file
+ - add line MockMakerInline
+
+We can mock context also,
+We can mock asset manager too,
+so where we need to make Instrumentation case only to access context
+We can convert them into JVM test case.
+
+We need to link context and asset manager
+
+doReturn(assetManager).`when`(context).assets
+
+ThenReturn
+
+We always tries to do JVM test instead of Instrumentatio test,
+so in case of where we need to context , assest like object , instead of using instrumentation test
+we can mock context and assets and create JVM test
+
+
+RoomDatabase test
+-------------------
+We need to perform testing on in memory database
+
+runBlocking - It will block the thread until all the coroutine
+defined in it execute
+
+getOrAwaitValue - It is extension method on livedata
+Used for synchronization
+
+If you have multiple threads, it will block untill all the thread work
+gets complete
+
+it will connituous check thread value, when thread values becomes 0,
+it will move on
+
+
+
+
+
+
+
+Test Dispatcher
+---------------
+
+All the coroutine get schedule but not execute on test dispatcher first
+We need to wait before executing assert statement that coroutine gets executed ,
+for that we need to use advancedUntillIdle
+
+testDispatcher.scheduler.advancedUntillIdle
+
+
+Mock Webserver
+---------------------
+Retrofit is a http client library though which we consume API
+
+API change doesn't impact on client side, for that we need to write test case
+If our request and response structure changes, our test case would be fail,
+otherwise test case would be pass
+
+And also we need to test , for different error code 500, 401 how our app will behave, we can test using mock web server
+
+And mock server is locally setup, we don't need to have internet
+
+And Rate Limiting problem also solved, we can reuest any number of request
+
+Cost : API request cost also not applied as it is local web server
+
+Faster development, we dont need to rely on API developement
+
+Testing Scenarios - All the testing scenarios we can test
+
+
+If the function is suspend function, we need to use runTest
+
+
+MockWebserver is used to test http client
+mockito is not
+
+
+Hilt : Is dependency framework
+
+when we use dependency injection, our code become loosely coupled and its easier to test code
+
+In testing envrironment, hilt creates testing objects for us
+
+
+
+
