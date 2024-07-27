@@ -3,8 +3,10 @@ package com.example.unittesting.viewmodels
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.unittesting.api.ProductRepository
 import com.example.unittesting.utils.NetworkResult
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.runTest
+import kotlinx.coroutines.test.setMain
 import org.junit.After
 import org.junit.Assert
 import org.junit.Before
@@ -24,8 +26,10 @@ class MainViewModelTest {
     @Mock
     lateinit var repository: ProductRepository
 
+
     @Before
     fun setUp() {
+        Dispatchers.setMain(Dispatchers.Unconfined)
         MockitoAnnotations.openMocks(this)
     }
 
@@ -34,8 +38,8 @@ class MainViewModelTest {
     }
 
     @Test
-    fun getProducts() = runTest {
-        Mockito.`when`(repository.getProducts()).thenReturn(NetworkResult.Error("Something went wrong"))
+    fun getProducts_expectedSuccess() = runTest {
+        Mockito.`when`(repository.getProducts()).thenReturn(NetworkResult.Success(emptyList()))
 
         val sut = MainViewModel(repository)
         sut.getProducts()
@@ -46,15 +50,13 @@ class MainViewModelTest {
 
     @Test
     fun getProducts_expectedError() = runTest {
-        Mockito.`when`(repository.getProducts()).thenReturn(NetworkResult.Success(emptyList()))
+        Mockito.`when`(repository.getProducts()).thenReturn(NetworkResult.Error("Something went wrong"))
 
         val sut = MainViewModel(repository)
         sut.getProducts()
         val result = sut.products.getOrAwaitValue()
-        Assert.assertEquals(0, result.data?.size)
         Assert.assertEquals(true, result is NetworkResult.Error<*>)
         Assert.assertEquals("Something went wrong", result.message)
-
     }
 
 }

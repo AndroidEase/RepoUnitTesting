@@ -15,7 +15,6 @@ class MainViewModel(private val repository: ProductRepository) : ViewModel() {
     val products: LiveData<NetworkResult<List<ProductListItem>>>
         get() = _products
 
-
     fun getProducts(){
         viewModelScope.launch {
             val result = repository.getProducts()

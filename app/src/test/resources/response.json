@@ -1,0 +1,16 @@
+[
+  {
+    "id" : 1,
+    "title" : "Test Product 1",
+    "price" : 210.0,
+    "description" : "Test Description",
+    "image" : "https://fakestoreapi.com/img/81e244.jpg"
+  },
+  {
+    "id" : 2,
+    "title" : "Test Product 2",
+    "price" : 220.0,
+    "description" : "Test Description 2",
+    "image" : "https://fakestoreapi.com/img/81e244.jpg"
+  }
+]

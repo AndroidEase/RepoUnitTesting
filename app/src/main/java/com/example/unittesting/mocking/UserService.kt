@@ -1,4 +1,4 @@
-package com.str.unittesting.mocking
+package com.example.unittesting.mocking
 
 class UserService(private val userRepository: UserRepository) {
 

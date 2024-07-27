@@ -3,9 +3,6 @@ package com.example.unittesting.mocking
 import android.content.Context
 import android.content.res.AssetManager
 import com.example.unittesting.instrumentationtest.QuoteManager
-import com.str.unittesting.mocking.LOGIN_STATUS
-import com.str.unittesting.mocking.UserRepository
-import com.str.unittesting.mocking.UserService
 import org.junit.Assert
 import org.junit.Before
 import org.mockito.ArgumentMatchers.anyString

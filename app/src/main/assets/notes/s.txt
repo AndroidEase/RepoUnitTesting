@@ -103,6 +103,40 @@ for that we need to use advancedUntillIdle
 testDispatcher.scheduler.advancedUntillIdle
 
 
+Mock Webserver
+---------------------
+Retrofit is a http client library though which we consume API
+
+API change doesn't impact on client side, for that we need to write test case
+If our request and response structure changes, our test case would be fail,
+otherwise test case would be pass
+
+And also we need to test , for different error code 500, 401 how our app will behave, we can test using mock web server
+
+And mock server is locally setup, we don't need to have internet
+
+And Rate Limiting problem also solved, we can reuest any number of request
+
+Cost : API request cost also not applied as it is local web server
+
+Faster development, we dont need to rely on API developement
+
+Testing Scenarios - All the testing scenarios we can test
+
+
+If the function is suspend function, we need to use runTest
+
+
+MockWebserver is used to test http client
+mockito is not
+
+
+Hilt : Is dependency framework
+
+when we use dependency injection, our code become loosely coupled and its easier to test code
+
+In testing envrironment, hilt creates testing objects for us
+
 
 
 

@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("kotlin-kapt")
+  //  id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -14,12 +16,12 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.example.unittesting.CustomRunner"
+
         vectorDrawables {
             useSupportLibrary = true
         }
     }
-
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -42,14 +44,23 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
     }
+
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
+//    sourceSets {
+//        androidTest.java.srcDirs += "src/sharedTest/java"
+//        test.java.srcDirs += "src/sharedTest/java"
+//    }
 }
 
 dependencies {
+
+    implementation("joda-time:joda-time:2.2")
+    testImplementation("junit:junit:4.12")
 
     // Change...
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
@@ -58,7 +69,9 @@ dependencies {
  //   implementation(libs.androidx.room.compiler)
 
     // Mockito
-    testImplementation("org.mockito:mockito-core:2.11.0")
+    implementation("org.mockito:mockito-core:2.11.0")
+    implementation("org.mockito:mockito-inline:5.2.0")
+
     implementation("com.google.code.gson:gson:2.8.6")
     implementation("com.squareup.retrofit:converter-gson:2.0.0-beta2")
 
@@ -69,10 +82,22 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
 
+    implementation("com.squareup.okhttp3:okhttp:4.7.2")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.7.2")
+
+  //  implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.0")
+
+    //  testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
+
     testImplementation("androidx.arch.core:core-testing:2.1.0")
 
     testImplementation("org.mockito:mockito-core:3.6.0")
     testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0")
+
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.2")
+
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.9.0")
+
 
     val room_version = "2.6.1"
 
@@ -96,5 +121,10 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-   // ssdd
+
+    // For instrumentation tests
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.43.2")
+    kaptAndroidTest("com.google.dagger:hilt-compiler:2.43.2")
+
+    // ssdd
 }

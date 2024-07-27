@@ -3,26 +3,31 @@ package com.example.unittesting.roomdatabase
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import com.example.unittesting.getOrAwaitValue
+import dagger.hilt.android.HiltAndroidApp
+import dagger.hilt.android.testing.HiltAndroidRule
+import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Assert
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 
+@HiltAndroidTest
 class QuoteDaoTest {
 
-//    @get:Rule
-//    val instantExecutorRule = InstantTaskExecutorRule()
+    @get:Rule
+    val instantExecutorRule = InstantTaskExecutorRule()
+
+    @get:Rule
+    val hiltAndroidRule = HiltAndroidRule(this)
 
     lateinit var quoteDatabase: QuoteDatabase
     lateinit var quotesDao: QuoteDao
 
     @Before
     fun setUp(){
-        quoteDatabase = Room.inMemoryDatabaseBuilder(
-            ApplicationProvider.getApplicationContext(),
-            QuoteDatabase::class.java
-        ).allowMainThreadQueries().build()
+        hiltAndroidRule.inject()
         quotesDao = quoteDatabase.quoteDao()
     }
 
