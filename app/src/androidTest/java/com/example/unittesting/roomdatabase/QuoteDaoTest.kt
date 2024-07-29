@@ -1,6 +1,5 @@
 package com.example.unittesting.roomdatabase
 
-import com.example.unittesting.getOrAwaitValue
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.flow.first

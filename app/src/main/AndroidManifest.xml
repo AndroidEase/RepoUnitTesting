@@ -17,7 +17,7 @@
         tools:targetApi="31">
 
         <activity
-            android:name="com.example.unittesting.flow.Flow_Operator_Activity"
+            android:name="com.example.unittesting.flow.FlowStateFlowActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.Light">

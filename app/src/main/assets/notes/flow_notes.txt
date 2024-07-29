@@ -138,5 +138,83 @@ when we use dependency injection, our code become loosely coupled and its easier
 In testing envrironment, hilt creates testing objects for us
 
 
+// map is non terminal operator
+
+first
+toList
+
+Terminal operator to start flow :
+Non terminal operator : Map - > convert one form to another form
+
+to start flow, we need terminal operator
+
+If consumer is slow, we can add buffer to consumer, so that it work fast
+
+
+Flow - Context Preservation
+-----------------------------------------------------
+By default producer and consumer works on main thread
+
+But if you want producer work on different thread, we can defiene it using flowOn property
+
+flowOn works upstream, its above statement execute on thread defined in flowOn property
+
+
+Flow - Exception Handling
+-------------------------
+We can catch exception in consumer side for both consumer and producer
+But if you want to seggregate exception, we can use catch block at producer end and
+try and catch block at consumer , then we can handle exception seperately
+
+
+Flow is cold nature
+
+Flow - All flow get indepenedant flow object, and it get data from starting
+
+It will get the data from beginning, even if it stater after some delay
+
+------------------------------------------------------------------
+Shared Flow is a hot flow -
+If we want we have multiple consumer and it share the flow, we have shared flow
+
+shared flow is hot flow, if second consumer joins later, it wont data from beginning,instead it will
+get data which is currenyly getting emit
+
+We have mutable shared flow - which can be changed
+
+If you want second consumer which joins later , get some number of past data , we have replay property
+
+-------------------------------------------------------------------
+State Flow
+
+- It will main last value of state and it also hot nature, and we have multiple consumer
+- It maintains state, and multiple consumer read the same value
+
+In state flow, if value is not getting produce it still get the value
+and in shared flow, if value is not getting produce, it will not get the data
+
+
+EX : If you have producer, and it emits values 10 and 20
+     Now after data emission, Consumer consumers value
+
+     If you have flow or shared flow, it wont any data because data emission process is completed at producer end
+     But if you have state flow, it will get last emitted value ,because it maintains a state
+
+
+     LiveData   vs StateFlow
+     Livedata - Transformation happens on main thread , map swithc, filter are heavy opearation whilch lag app
+     Stateflow - Has flowOn property where we can define thread
+
+     Livedata - has limited operator
+     StateFlow - has more operator
+
+     Livedata - is lifecycle dependant
+     StateFlow - not livefycle awae, e.g repository where we can use flow instead of livedata
+                - In flow we need only coorutine scope only
+
+
+
+
+
 
 
