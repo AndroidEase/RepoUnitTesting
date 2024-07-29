@@ -1,0 +1,65 @@
+1. What is implicit and explicit Intent?
+2. Type of Services and their differences 
+3. Work Manager
+4. How to create Singleton
+5. Room DB
+6. Unit/UI Testing, Unit test cases
+7. OOPS concepts : Polymorphism, Encapsulation, Abstraction, Inheritance -> Implement inheritance - What is object oriented programming
+8. MVC, MVVM and their differences
+9. Thread
+10. Coroutine
+11. RxJava
+12. Var, Val, Const
+13. Broadcast Receivers
+14. APK vs App Bundle
+15. Https internalk working
+16. Ho to download data from server in chunks
+17. Viewmodel working and lifecycle
+18. Room database migration techniques
+19. Jetpack compose and components
+20. Dependency Injection
+21. CI/CD
+22. Navigation graph
+23. What is SOAP in android?
+24. MVVM architectur and its components
+25. Scope functions
+26. Inline functions
+27. lateinit, var, val
+28. Kotlin basi questions
+29. coroutine
+30. Java basic interview questions
+31. What is abstract class?
+32. What is singleton class?
+33. MVVM design pattern
+34. Lifecycle of Activity
+35. Lifecycle of Fragment
+35. Push Notification
+36. What is Fragment
+37. What is Marker Interface
+38. Basic Android, Basic Java, Basic OOPS, Kotlin
+39. Basics of Project structure
+40. Diff betwwen MVVM and MVP
+41. Agile and CI/CD pipeline
+42. - Every MNC mostly Focused on basis questions like oops, activity/fragment lifecycle, service, courutine etc .
+43. Difference between interface and abstract class?
+44. What is concepts of IOC? Inversion of Control
+45. Difference between ArrayList and Linkedin List in Java?
+46. Explain internal working of HTTPS
+47. Explain Dependency Injection
+48. How can data be downloaded from server in chunks?
+49. What are techniques for Room database migration?
+50. Describe process of setting up CI/CD
+51. Can you explain the design principles you follow when working on a project?
+52. What is your understanding of MVVM and MVP architecture patterns?
+53. What experience do you have with Fragments in Android development?
+54. Can you discuss your experience with Java?
+55. Can you talk about your experience with Android?
+56. Can you discuss your experience with Java?
+57. What are the different launch modes in Android?
+58. Can you explain the Android architecture?
+59. What is the difference between a sealed class and an enum?
+60. How you areate singleton in kotlin?
+61. Can you explain what Room DB is and how it is used?
+62. What are the types of services and how do they differ?
+63. Explain the differences between explicit and implicit intent types.
+64. Can you explain what SOAP is in the context of Android development?
